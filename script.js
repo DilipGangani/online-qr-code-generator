@@ -1,3 +1,5 @@
+let qr;
+
 function generateQR() {
     const qrText = document.getElementById("qrText").value.trim();
     const qrResult = document.getElementById("qrResult");
@@ -11,41 +13,19 @@ function generateQR() {
         return;
     }
 
-    // Generate QR as canvas
-    new QRCode(qrResult, {
+    qr = new QRCode(qrResult, {
         text: qrText,
-        width: 250,
-        height: 250,
+        width: 200,
+        height: 200,
         colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
+        colorLight: "#ffffff"
     });
 
-    // Wait for QR to render
     setTimeout(() => {
-        const canvas = qrResult.querySelector("canvas");
-        if (!canvas) return;
-
-        const ctx = canvas.getContext("2d");
-
-        const logo = new Image();
-        logo.src = "logo.png";
-
-        logo.onload = function () {
-            const logoSize = canvas.width * 0.2; // 20% of QR size
-            const x = (canvas.width - logoSize) / 2;
-            const y = (canvas.height - logoSize) / 2;
-
-            // White background behind logo
-            ctx.fillStyle = "#ffffff";
-            ctx.fillRect(x - 6, y - 6, logoSize + 12, logoSize + 12);
-
-            // Draw logo in center
-            ctx.drawImage(logo, x, y, logoSize, logoSize);
-
-            // Enable download
-            downloadBtn.href = canvas.toDataURL("image/png");
+        const img = qrResult.querySelector("img");
+        if (img) {
+            downloadBtn.href = img.src;
             downloadBtn.style.display = "inline-block";
-        };
+        }
     }, 300);
 }

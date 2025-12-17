@@ -26,13 +26,12 @@ main {
 }
 
 .card {
-    background: white;
-    max-width: 400px;
-    margin: auto;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* THIS FIXES THE SHIFT */
 }
+
 
 input {
     width: 100%;
@@ -80,12 +79,17 @@ button:hover {
     text-decoration: none;
     border-radius: 5px;
 }
+.card button {
+  width: 100%;
+  margin-top: 10px;
+}
 
 footer {
     margin-top: 40px;
     color: #555;
     font-size: 14px;
 }
+
 
 
 

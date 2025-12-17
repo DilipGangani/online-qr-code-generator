@@ -18,7 +18,7 @@ header {
 }
 
 main {
-    padding: 48px 20px;
+    padding: 150px 20px;
 }
 
 .card {
@@ -71,4 +71,5 @@ footer {
     color: #555;
     font-size: 14px;
 }
+
 

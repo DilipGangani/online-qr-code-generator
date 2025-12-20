@@ -23,7 +23,9 @@
         <div class="card">
             <input type="text" id="qrText" placeholder="Enter text or URL">
             <button onclick="generateQR()">Generate QR Code</button>
-
+            
+            <div id="qrPreview"></div>
+        
             <div id="qrResult" style="display: flex; justify-content: center;"></div>
             
             <a id="downloadBtn" download="qr-code.png">Download QR Code</a>
@@ -34,9 +36,12 @@
         <p>© 2025 Your Brand Name</p>
     </footer>
 
+    <script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
     <script src="script.js"></script>
+    
 </body>
 </html>
+
 
 
 

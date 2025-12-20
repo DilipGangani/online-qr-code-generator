@@ -67,4 +67,21 @@ function generateQR() {
     qrCode.append(document.getElementById("qrPreview"));
 }
 
+function downloadQR() {
+    if (!qrCode) {
+        alert("Generate QR first");
+        return;
+    }
+
+    qrCode.download({
+        name: "qr-with-logo",
+        extension: "png"
+    });
+}
+
+#qrPreview {
+    margin: 20px auto;
+    width: fit-content;
+}
+
 

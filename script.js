@@ -29,3 +29,42 @@ function generateQR() {
         }
     }, 300);
 }
+
+let qrCode;
+
+function generateQR() {
+    const text = document.getElementById("qrText").value.trim();
+
+    if (!text) {
+        alert("Please enter text or URL");
+        return;
+    }
+
+    document.getElementById("qrPreview").innerHTML = "";
+
+    qrCode = new QRCodeStyling({
+        width: 280,
+        height: 280,
+        type: "canvas",
+        data: text,
+        image: "logo.png", // YOUR LOGO
+        qrOptions: {
+            errorCorrectionLevel: "H"
+        },
+        imageOptions: {
+            imageSize: 0.25,
+            margin: 8
+        },
+        dotsOptions: {
+            color: "#000000",
+            type: "rounded"
+        },
+        backgroundOptions: {
+            color: "#ffffff"
+        }
+    });
+
+    qrCode.append(document.getElementById("qrPreview"));
+}
+
+
